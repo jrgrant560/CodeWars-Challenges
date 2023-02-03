@@ -1,3 +1,5 @@
+//CHALLENGE SOURCE: https://www.codewars.com/kata/63cbe409959401003e09978b?fbclid=IwAR2VQXkNiTBIT0rlhbr2LOgDp7qVvbvfqsmwvaLpT3EAV3qf7kmvHTuyzHc
+
 let testArray = [2, 4, 4, 6, 2, 1, 1, 5, 6, 7, 8, 8, 8, 8, 9,0,1,1,5,4,4];
 
 //processes the array for sequences, then returns a new array that has been reducedto its sequence counts only
