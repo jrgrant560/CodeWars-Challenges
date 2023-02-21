@@ -1,6 +1,7 @@
 //SOURCE: https://www.codewars.com/kata/54b42f9314d9229fd6000d9c/train/javascript
 //Completion Time: ~4 hours? (across 3 sessions)
 
+//converts any repeated letters to ')', and any non-repeated letters to '('
 function duplicateEncode(word) {
     let wordArray = word.split(""); //the original string converted to an array
     let duplicateChars = []; //empty array to contain characters flagged as duplicates
@@ -25,10 +26,10 @@ function duplicateEncode(word) {
         (char) => {
             if (duplicateChars.includes(char.toLowerCase())) {
                 newWordArray.push(')');
-                console.log(char + ' is repeated')
+                //console.log(char + ' is repeated')
             } else {
                 newWordArray.push('(');
-                console.log(char + ' is normal')
+                //console.log(char + ' is normal')
             }
         }
     );
