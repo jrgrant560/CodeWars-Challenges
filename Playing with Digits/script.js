@@ -1,7 +1,35 @@
 //SOURCE: https://www.codewars.com/kata/5552101f47fc5178b1000050/train/javascript
-//Completion Time: 
+//Completion Time: ~1:20
 
 //does (a ^ p + b ^ (p+1) + c ^(p+2) + d ^ (p+3) + ...) = n * k?
+//BREAKDOWN:
+// n = abcd...
+// p (int)
+
+// (a ^ p
+//  + b ^ (p+1)
+//  + c ^(p+2)
+//  + d ^ (p+3)
+//  + ...) 
+// = n * k
+
+// ) convert n to an array of integers
+
+// ) create array of nArray integers converted by [formula]
+
+// ) add all convertedNArray integers into a Sum
+
+// ) find k
+//   ) loop through ascending integers until...
+//     ) a match to the Sum is found
+//     ) it exceeds the Sum
+
+// ) if [formula] = n * k, return k; if not, return -1
+
+// ) if there is no k, return '-1'
+
+
+
 function digPow(n, p){
 
     let digArray = (""+n).split("").map(x => { return parseInt(x); }); //splits n into an array of its digits
