@@ -13,7 +13,7 @@ String.prototype.toJadenCase = function () {
     //converts the string to an array of each word
     let arrayofWords = this.toString().split(' ');
 
-    // cycles through every wrod in the array and capitalizes each first letter
+    // cycles through every word in the array and capitalizes each first letter
     for (wordIndex = 0; wordIndex < arrayofWords.length; wordIndex++) {
 
         //starting index position of the first character in the word
