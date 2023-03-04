@@ -1,7 +1,7 @@
 //SOURCE: https://www.codewars.com/kata/5842df8ccbd22792a4000245/javascript
 //Completion Time: ~30 mins
 
-//BREAKDOWN: 
+//BREAKDOWN: see comments
 
 //split a number to its multiples of 10 or 1
 function expandedForm(num) {
