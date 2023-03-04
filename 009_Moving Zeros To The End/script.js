@@ -1,7 +1,7 @@
 //SOURCE: https://www.codewars.com/kata/52597aa56021e91c93000cb0/train/javascript
 //Completion Time: ~ 30 mins
 
-//BREAKDOWN:
+//BREAKDOWN: see comments
 
 //move all elements that equal 0 to the end of the array
 function moveZeros(arr) {
