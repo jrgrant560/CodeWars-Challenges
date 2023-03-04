@@ -1,0 +1,30 @@
+My Codewars Challenges Process:
+
+~ STEPS ~
+0) Setup:
+  - Visual Studio Code master folder
+  - Create new folder for this challenge (numbered)
+  - Copy template script.js
+    - Completion Time
+    - Breakdown Section
+    - empty function
+    - test variables
+    - console.log( function(testVar)
+1) Start Timer
+2) Breakdown challenge into its parts
+3) Copy over or make up test variables
+4) Write & Test Code until working! No matter how ugly.
+5) Test & Attempt, go back and retry until successful
+6) Stop Timer when successful!
+7) Add comments, remove console logs, refactor if desired, then Submit
+8) Fill in Completion Time, then Commit to Github
+
+
+~ BONUS ~ (after completing 10+ challenges)
+  - refactor your code a bit before submitting. I recommend not timing this part.
+  - look at the top two solutions from other users and break down (add comments) of how they work. This will give you tips on how to do even better next time.
+
+~ GOALS ~
+  - Become proficient in a single programming language, without any other distractions
+  - Practice breaking down programming problems
+  - Regular commits to your GitHub
