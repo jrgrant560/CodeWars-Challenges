@@ -5,7 +5,7 @@
 
 //check if a number is a Narcissistic Number
 function narcissistic(value) {
-    let digArray = (""+value).split("").map(x => { return parseInt(x); }); //splits n into an array of its digits
+    let digArray = (""+value).split("").map(x => { return parseInt(x); }); //splits number into an array of its digits
     let digPowArray = digArray.map((digit, i, arr) => Math.pow(digit, arr.length)); //raises each digit in the array to the power that is the length of the array
     let digPowSum = digPowArray.reduce(function(a, b) { return a + b; }); //adds all digits together
     
