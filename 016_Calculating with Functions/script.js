@@ -63,21 +63,26 @@ function dividedBy(int) {
 
 //ALTERNATIVE FROM OTHER USER:
 // Ugh, look how small it is!
-// function zero(fn) {return fn ? fn(0) : 0}
-// function one(fn) {return fn ? fn(1) : 1}
-// function two(fn) {return fn ? fn(2) : 2}
-// function three(fn) {return fn ? fn(3) : 3}
-// function four(fn) {return fn ? fn(4) : 4}
-// function five(fn) {return fn ? fn(5) : 5}
-// function six(fn) {return fn ? fn(6) : 6}
-// function seven(fn) {return fn ? fn(7) : 7}
-// function eight(fn) {return fn ? fn(8) : 8}
-// function nine(fn) {return fn ? fn(9) : 9}
+// function zero(fn) { //fn is a function returned from the calc function (i.e. function (v) { return v + n })
+//     return fn ? fn(0) : 0 //if there is a function (fn) given, return fn(0); if not, then return only 0
+// }
+// function one(fn) { return fn ? fn(1) : 1 }
+// function two(fn) { return fn ? fn(2) : 2 }
+// function three(fn) { return fn ? fn(3) : 3 }
+// function four(fn) { return fn ? fn(4) : 4 }
+// function five(fn) { return fn ? fn(5) : 5 }
+// function six(fn) { return fn ? fn(6) : 6 }
+// function seven(fn) { return fn ? fn(7) : 7 }
+// function eight(fn) { return fn ? fn(8) : 8 }
+// function nine(fn) { return fn ? fn(9) : 9 }
 
-// function plus(n) {return function(v) {return v + n}}
-// function minus(n) {return function(v) {return v - n}}
-// function times(n) {return function(v) {return v * n}}
-// function dividedBy(n) {return function(v) {return v / n}}
+// function plus(n) {  //inserts n from the function that it calls
+//     return function (v) { return v + n } //sends this function, which needs a parameter, to the calling function to process
+// } 
+// function minus(n) { return function (v) { return v - n } }
+// function times(n) { return function (v) { return v * n } }
+// function dividedBy(n) { return function (v) { return v / n } }
+
 
 //ALTERNATIVE FROM OTHER USER:
 // Ugh, look how small it is!
@@ -104,4 +109,4 @@ function dividedBy(int) {
 //console.log( eight(minus(three())) ); // must return 5
 //console.log( six(dividedBy(two())) ); // must return 3
 
-console.log(four(minus(zero())));
+console.log(seven(times(three())));
