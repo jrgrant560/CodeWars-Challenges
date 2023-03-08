@@ -34,7 +34,7 @@ function findUniq(arr) {
 
 //ALTERNATIVE SOLUTION FROM OTHER USER
 // function findUniq(arr) {
-//     return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n)); //find the element that has only one index number
+//     return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n)); //find the element that has only one index number; scans from start and from end to determine the same;
 // }
 
 // ---------
