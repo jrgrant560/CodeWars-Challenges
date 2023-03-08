@@ -7,87 +7,41 @@
 //DONE; refactor, add comments, rewrite breakdown
 
 //perform calculations using functions
-function zero() {
-    let myInt = 0;
-    let result = myInt;
-    if (arguments.length == 1) { //if there is a calc function parameter...
-        result = calcInt(arguments[0][0], myInt, arguments[0][1]);
-    }
-    return result;
-}
-function one() {
-    let myInt = 1;
-    let result = myInt;
-    if (arguments.length == 1) { //if there is a calc function parameter...
-        result = calcInt(arguments[0][0], myInt, arguments[0][1]);
-    }
-    return result;
-}
-function two() {
-    let myInt = 2;
-    let result = myInt;
-    if (arguments.length == 1) { //if there is a calc function parameter...
-        result = calcInt(arguments[0][0], myInt, arguments[0][1]);
-    }
-    return result;
-}
-function three() {
-    let myInt = 3;
-    let result = myInt;
-    if (arguments.length == 1) { //if there is a calc function parameter...
-        result = calcInt(arguments[0][0], myInt, arguments[0][1]);
-    }
-    return result;
-}
-function four() {
-    let myInt = 4;
-    let result = myInt;
-    if (arguments.length == 1) { //if there is a calc function parameter...
-        result = calcInt(arguments[0][0], myInt, arguments[0][1]);
-    }
-    return result;
-}
-function five() {
-    let myInt = 5;
-    let result = myInt;
-    if (arguments.length == 1) { //if there is a calc function parameter...
-        result = calcInt(arguments[0][0], myInt, arguments[0][1]);
-    }
-    return result;
-}
-function six() {
-    let myInt = 6;
-    let result = myInt;
-    if (arguments.length == 1) { //if there is a calc function parameter...
-        result = calcInt(arguments[0][0], myInt, arguments[0][1]);
-    }
-    return result;
-}
-function seven() {
-    let myInt = 7;
-    let result = myInt;
-    if (arguments.length == 1) { //if there is a calc function parameter...
-        result = calcInt(arguments[0][0], myInt, arguments[0][1]);
-    }
-    return result;
-}
-function eight() {
-    let myInt = 8;
-    let result = myInt;
-    if (arguments.length == 1) { //if there is a calc function parameter...
-        result = calcInt(arguments[0][0], myInt, arguments[0][1]);
-    }
-    return result;
-}
-function nine() {
-    let myInt = 9;
-    let result = myInt;
-    if (arguments.length == 1) { //if there is a calc function parameter...
-        result = calcInt(arguments[0][0], myInt, arguments[0][1]);
+function intCalc(..._args) {
+    let result = myInt = arguments[0];
+    if (arguments[1] != undefined) { //if there is a calc function parameter given...
+        let calc = arguments[1][0];
+        let intB = arguments[1][1];
+        switch (calc) {
+            case "add":
+                result = myInt + intB;
+                break;
+            case "subtract":
+                result = myInt - intB;
+                break;
+            case "multiply":
+                result = myInt * intB;
+                break;
+            case "divide":
+                result = parseInt(myInt / intB);
+                break;
+            default:
+                result = "invalid calculation requested";
+        }
     }
     return result;
 }
 
+function zero() { return intCalc(0, arguments[0]) };
+function one() { return intCalc(1, arguments[0]) };
+function two() { return intCalc(2, arguments[0]) };
+function three() { return intCalc(3, arguments[0]) };
+function four() { return intCalc(4, arguments[0]) };
+function five() { return intCalc(5, arguments[0]) };
+function six() { return intCalc(6, arguments[0]) };
+function seven() { return intCalc(7, arguments[0]) };
+function eight() { return intCalc(8, arguments[0]) };
+function nine() { return intCalc(9, arguments[0]) };
 function plus(int) {
     return ["add", int]
 }
@@ -101,35 +55,6 @@ function dividedBy(int) {
     return ["divide", int]
 }
 
-function calcInt(calc, intA, intB) {
-    let calcResult = 0;
-    switch (calc) {
-        case "add":
-            calcResult = intA + intB;
-            break;
-        case "subtract":
-            calcResult = intA - intB;
-            break;
-        case "multiply":
-            calcResult = intA * intB;
-            break;
-        case "divide":
-            calcResult = parseInt(intA / intB);
-            break;
-        default:
-            calcResult = "invalid calculation requested";
-    }
-    return calcResult;
-}
-
-// function int() {
-//     let myInt = 3;
-//     let result = myInt;
-//     if (arguments.length == 1) { //if there is a calc function parameter...
-//         result = calcInt(arguments[0][0], myInt, arguments[0][1]);
-//     }
-//     return result;
-// };
 
 // ---------
 //console.log( seven(times(five())) ); // must return 35
@@ -137,4 +62,4 @@ function calcInt(calc, intA, intB) {
 //console.log( eight(minus(three())) ); // must return 5
 //console.log( six(dividedBy(two())) ); // must return 3
 
-console.log(one(dividedBy(eight())));
+console.log(seven(times(two())));
