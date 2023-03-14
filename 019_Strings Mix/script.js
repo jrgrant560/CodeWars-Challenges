@@ -1,16 +1,18 @@
 //Completion Time: 34 + 4:21 + 17
-//BREAKDOWN:
+//BREAKDOWN: 
 
-//
+// ) return a string that contains substrings of the largest count of each lowercase letter from two strings, ordered from largest to smallest
+//   ) each substring is formatted: [=/1/2]:[char * letter]/
+//   example: "=:aaaaaa/2:eeeee/=:fffff/1:tt/2:rr/=:hh"
+//   1) [=/1/2] : the number of the string that contains the highest count of a character; OR an equals sign if they are even
+//   2) [char * letter] : a substring of the 'count' number of a letter
+//   ) do not include counts that aren't greater than 1
+
+//compare which of the two strings has the most lowercase characters, and return a specific result
 function mix(s1, s2) {
     //sorts an object by its keys
     function sortObjByKeys(obj) {
         return Object.fromEntries(Object.entries(obj).sort());
-    }
-
-    //sorts an object by its keys reversed
-    function sortObjByKeysReverse(obj) {
-        return Object.fromEntries(Object.entries(obj).sort().reverse());
     }
 
     //sorts an object by its values
@@ -18,94 +20,79 @@ function mix(s1, s2) {
         return Object.fromEntries(Object.entries(obj).sort((a, b) => b[1] - a[1]));
     }
 
+    //object containing all lowercase characters, with their counts
     let s1CharCounts = s1.match(/[a-z]/g).reduce((count, item) => {
         return count[item] = count[item] + 1 || //increment the count if it exists, ELSE
             1, count //initialize the count at 1
     }, {});
-    //console.log(s1CharCounts);
 
     //object containing all lowercase characters, with their counts
     let s2CharCounts = s2.match(/[a-z]/g).reduce((count, item) => {
         return count[item] = count[item] + 1 || //increment the count if it exists, ELSE
             1, count //initialize the count at 1
     }, {});
-    //console.log(s2CharCounts);
 
-    function returnGreaterStringObj(prop, numA,numB) {
-        let resultObj = {};
-        if (numA == numB && numA > 1) {
-            resultObj[(10000 - numA) + "E" + prop] = ("=:" + prop.repeat(numA));
-        } else if ((numA > numB || numB == undefined) && numA > 1) {
-            resultObj[(10000 - numA) + "A" + prop ] = ("1:" + prop.repeat(numA));
-        } else if ((numB > numA || numA == undefined) && numB > 1) {
-            resultObj[(10000 - numB) + "B" + prop ] = ("2:" + prop.repeat(numB));
+    let mergedCharCounts = sortObjByValues(sortObjByKeys({ ...s1CharCounts, ...s2CharCounts })); //object containing all characters with s2's counts, sorted alpha-numerically, then by count
+
+    //returns the intended key:string pair, based on the comparison results between numA & numB
+    //the key will be used to sort alpha-numerically
+    function returnGreaterStringObj(prop, numA, numB) {
+        let result = {};
+        if (numA == numB && numA > 1) { //if numbers are equal, and greater than 1
+            result[(100000 - numA) + "E" + prop] = ("=:" + prop.repeat(numA));
+        } else if ((numA > numB || numB == undefined) && numA > 1) { //if (A > B, or B is not undefined), and A > 1
+            result[(100000 - numA) + "A" + prop] = ("1:" + prop.repeat(numA));
+        } else if ((numB > numA || numA == undefined) && numB > 1) { //if (B > A, or A is not undefined), and B > 1
+            result[(100000 - numB) + "B" + prop] = ("2:" + prop.repeat(numB));
         }
-        //console.log(resultObj);
-        return resultObj;
+        return result;
     }
 
-    let mergedCharCounts = sortObjByValues(sortObjByKeys({...s1CharCounts, ...s2CharCounts})); //object containing all characters with s2's counts, sorted alphabetically, then by count
-    console.log(mergedCharCounts);
-    
     let resultObj = {};
 
-    for (const property in mergedCharCounts) {
-        //if (mergedCharCounts[property] > 1) {
-            let greaterStringObj = returnGreaterStringObj( property, s1CharCounts[property], s2CharCounts[property] )
-            Object.assign(resultObj, greaterStringObj);
-        //}
+    for (const property in mergedCharCounts) { //for every key: string pair in mergedCharCounts...
+        let greaterStringObj = returnGreaterStringObj(property, s1CharCounts[property], s2CharCounts[property]) //object returned from returnGreaterStringObj
+        Object.assign(resultObj, greaterStringObj); //append greaterStringObj into result Object; won't assign empty greaterStringObj's
     }
 
-    // let totalCharCounts = s1.concat('', s2).match(/[a-z]/g).reduce((count, item) => {
-    //     return count[item] = count[item] + 1 || //increment the count if it exists, ELSE
-    //         1, count //initialize the count at 1
-    // }, {});
-    //console.log(totalCharCounts);
-
-    //let totalCharCountsSortedKeys = sortObjByKeys(totalCharCounts); // totalCharCounts object sorted by keys (alphabetically)
-
-    //let totalCharCountsSorted = sortObjByValues(totalCharCountsSortedKeys); // totalCharCounts object sorted by values, after being sorted by keys
-
-
-    
-
-    // for (const property in s1CharCounts) {
-    //     if (s1CharCounts[property] > 1 && (s1CharCounts[property] > s2CharCounts[property] || s2CharCounts[property] == undefined)) {
-    //         resultArray.push('1:' + property.repeat(s1CharCounts[property]));
-    //     } else if (s2CharCounts[property] > s1CharCounts[property] && s2CharCounts[property] != undefined) {
-    //         resultArray.push('2:' + property.repeat(s2CharCounts[property]));
-    //     } else if (s1CharCounts[property] == s2CharCounts[property]) {
-    //         resultArray.push('=:' + property.repeat(s1CharCounts[property]));
-    //     }
-    // }
-
-    // for (const property in totalCharCountsSorted) {
-    //     if (s1CharCounts[property] >= Math.round(totalCharCountsSorted[property] / 2)) {
-    //         resultArray.push('1:' + property.repeat(s1CharCounts[property]));
-    //     } else if (s2CharCounts[property] >= Math.round(totalCharCountsSorted[property] / 2)) {
-    //         resultArray.push('2:' + property.repeat(s2CharCounts[property]));
-    //     } else if (s1CharCounts[property] == s2CharCounts[property]) {
-    //         resultArray.push('=:' + property.repeat(s1CharCounts[property]));
-    //     }
-    // }
-
-    // for (const property in totalCharCountsSorted) {
-
-    //     if (s1CharCounts[property] == s2CharCounts[property]) {
-    //         resultArray.push('=:' + property.repeat(s1CharCounts[property]));
-    //     } else if (s1CharCounts[property] > s2CharCounts[property] || s2CharCounts[property] == undefined) {
-    //         resultArray.push('1:' + property.repeat(s1CharCounts[property]));
-    //     } else if (s2CharCounts[property] > s1CharCounts[property] || s1CharCounts[property] == undefined) {
-    //         resultArray.push('2:' + property.repeat(s2CharCounts[property]));
-    //     }
-    // }
-
-
-    //console.log(resultObj);
-    console.log(sortObjByKeys(resultObj));
     return Object.values(sortObjByKeys(resultObj)).join('/');
 }
 
+//ALTERNATIVE FROM OTHER USER; there aren't any short solutions to this Kata, so I can cut myself some slack
+// function mix(s1, s2) {
+//     return alphabet
+//         .map(char => {
+//             const s1Count = s1.split('').filter(x => x === char).length,
+//                 s2Count = s2.split('').filter(x => x === char).length,
+//                 maxCount = Math.max(s1Count, s2Count);
+
+//             return {
+//                 char: char,
+//                 count: maxCount,
+//                 src: maxCount > s1Count ? '2' : maxCount > s2Count ? '1' : '='
+//             };
+//         })
+//         .filter(c => c.count > 1)
+//         .sort((objA, objB) => objB.count - objA.count || (objA.src + objA.char > objB.src + objB.char ? 1 : -1))
+//         .map(c => `${c.src}:${c.char.repeat(c.count)}`)
+//         .join('/');
+// }
+
+//ALTERNATIVE FROM OTHER USER; there aren't any short solutions to this Kata, so I can cut myself some slack
+// function mix(s1, s2) {
+//     var counter = s => s.replace(/[^a-z]/g, '').split('').sort().reduce((x, y) => (x[y] = 1 + (x[y] || 0), x), {});
+//     s1 = counter(s1); s2 = counter(s2);
+//     var res = [], keys = new Set(Object.keys(s1).concat(Object.keys(s2)));
+//     keys.forEach(key => {
+//         var c1 = s1[key] || 0, c2 = s2[key] || 0, count = Math.max(c1, c2);
+//         if (count > 1) {
+//             var from = [1, '=', 2][Math.sign(c2 - c1) + 1];
+//             var str = [...Array(count)].map(_ => key).join('');
+//             res.push(from + ':' + str);
+//         }
+//     });
+//     return res.sort((x, y) => y.length - x.length || (x < y ? -1 : 1)).join('/');
+// }
 
 // ---------
 let testStrA = "Are the kids at home? aaaaa fffff";
