@@ -1,4 +1,4 @@
-//Completion Time: 34 + 4:21 + 17
+//Completion Time: 5:12
 //BREAKDOWN: 
 
 // ) return a string that contains substrings of the largest count of each lowercase letter from two strings, ordered from largest to smallest
@@ -7,6 +7,7 @@
 //   1) [=/1/2] : the number of the string that contains the highest count of a character; OR an equals sign if they are even
 //   2) [char * letter] : a substring of the 'count' number of a letter
 //   ) do not include counts that aren't greater than 1
+// NOTE: This challenge was missing or did not specify a rule to sort the result by order of prefix, taking me longer than it should have. I was pretty tired for most of it too.
 
 //compare which of the two strings has the most lowercase characters, and return a specific result
 function mix(s1, s2) {
