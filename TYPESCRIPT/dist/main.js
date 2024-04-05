@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var _004_AbbreviateTwoWordName_1 = require("./004_AbbreviateTwoWordName");
+var _005_RemoveStringSpaces_1 = require("./005_RemoveStringSpaces");
 var myStr = "John Smith";
 // let myArr = ["I", "am", "watching", "the", "clouds"];
-console.log((0, _004_AbbreviateTwoWordName_1.abbrevName)(myStr));
+console.log((0, _005_RemoveStringSpaces_1.noSpace)(myStr));
