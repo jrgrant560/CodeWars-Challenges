@@ -1,6 +1,6 @@
-//Completion Time: 
+//Completion Time: 1.5 mins
 
-//BREAKDOWN: see comments
+//BREAKDOWN: split by spaces, then join. Easy.
 
 export function noSpace(x:string) : string {
     return x.split(" ").join("");

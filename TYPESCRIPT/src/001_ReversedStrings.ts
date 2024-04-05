@@ -16,7 +16,7 @@ export function solution(str: string): string {
 
 
 //     return str
-//         .split("") //splits the string into individual characters
+//         .split("") //splits the string into individual characters array
 //         .reverse() // reverses the array of characters
 //         .join(""); // concatenates the characters in their new order
 // }
