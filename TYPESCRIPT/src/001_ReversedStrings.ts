@@ -4,7 +4,7 @@
 
 export function solution(str: string): string {
     let reversedSTR = ""; // new blank string variable
-    for (let i = (str.length - 1); i > -1; i--) { //loop that runs through the length of the string in reverse
+    for (let i = (str.length - 1); i > -1; i--) { //descending loop through the string in reverse
         reversedSTR += str[i]; //appends each character to reversedSTR, starting from the end of the string
     }
 
