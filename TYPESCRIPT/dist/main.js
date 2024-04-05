@@ -1,15 +1,7 @@
-function processData(name, age, isStudent, hobbies) {
-    console.log("Name: ".concat(name));
-    console.log("Age: ".concat(age));
-    console.log("Is Student: ".concat(isStudent));
-    console.log("Hobbies: ".concat(hobbies.join(', ')));
-}
-// const theName = 'John Doe';
-// const age = 25;
-// const isStudent = true;
-// const hobbies = ['reading', 'coding', 'gaming'];
-var theName = 'John Doe';
-var age = 25;
-var isStudent = true;
-var hobbies = ['reading', 'coding', 'gaming'];
-processData(theName, age, isStudent, hobbies);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// import { disemvowel } from './001';
+var _001_DisemvowelTrolls_1 = require("./001_DisemvowelTrolls");
+console.log(_001_DisemvowelTrolls_1.Kata.disemvowel('Hello World!'));
+// Kata.disemvowel('Hello World!');
+// processData(theName, age, isStudent, hobbies);
