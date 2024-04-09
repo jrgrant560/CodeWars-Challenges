@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var _006_CountingSheep_1 = require("./006_CountingSheep");
-//let myStr = "John Smith";
+var _007_TransportationOnVacation_1 = require("./007_TransportationOnVacation");
+var myStr = "John Smith";
 var myArr = [true, true, true, false, null, undefined];
-console.log((0, _006_CountingSheep_1.countSheeps)(myArr));
+var myNum = 7;
+console.log((0, _007_TransportationOnVacation_1.rentalCarCost)(myNum));
